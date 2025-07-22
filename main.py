@@ -7,6 +7,10 @@ mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
 mp_pose = mp.solutions.pose
 
+# 動画を保存する用のモジュール
+# fourcc = cv2.VideoWriter_fourcc('m','p','4', 'v')
+# video = cv2.VideoWriter('demo.mp4', fourcc, 20.0, (640, 360))
+
 # 静止画像の場合：
 # with mp_pose.Pose(
 #     static_image_mode=True, min_detection_confidence=0.5) as pose:
@@ -120,8 +124,12 @@ with mp_pose.Pose(
          if cv2.waitKey(1) & 0xFF == ord('q'):
             break
       else:
-         if cv2.waitKey(5) & 0xFF == ord('q'):
+         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
       # print(count)
       count += 1
+
+#       video.write(image)
+
+# video.release()
 cap.release()
